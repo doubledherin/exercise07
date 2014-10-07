@@ -22,10 +22,12 @@ def main():
 				continue
 			hist[item] = hist.get(item, 0) + 1
 	
-	hist_items = hist.items()
-	hist_items.sort(key=lambda word: word[1], reverse=True)
-
-	print hist_items
+	# invert histogram
+	inverse = {}
+	for key in hist:
+		val = hist[key]
+		inverse.setdefault(val,[]).append(key)
+	print inverse
 
 if __name__ == "__main__":
 	main()
