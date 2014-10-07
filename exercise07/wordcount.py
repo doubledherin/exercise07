@@ -19,8 +19,8 @@ def main():
 		for item in line:
 			hist[item] = hist.get(item, 0) + 1
 	
-	for key, value in hist.iteritems():
-		print key, value
+	hist_items = hist.items()
+	print hist_items
 
 if __name__ == "__main__":
 	main()
