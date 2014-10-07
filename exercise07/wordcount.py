@@ -1,22 +1,21 @@
 import string
 from sys import argv
 
-
 script, filename = argv
 
 def main():
 	hist = {}
+
 	exclude = string.punctuation
 
 	fin = open(filename)
-	for line in fin:
-		
+	for line in fin:	
 		# get rid of punctuation
 		line = ''.join(char for char in line if char not in exclude)
-		
-		# get rid of newlines and split line into a list of word strings
-		line = line.rstrip().split(" ")
+		# lowercase, dump newlines, and split into a list of word strings
+		line = line.lower().rstrip().split(" ")
 
+		# build histogram
 		for item in line:
 			hist[item] = hist.get(item, 0) + 1
 	
