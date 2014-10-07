@@ -17,13 +17,14 @@ def main():
 
 		# build histogram
 		for item in line:
-			# chuck strings of digits
-			if item.isdigit() or item == "":
+			# chuck strings of digits and empty strings
+			if item == "" or item[0] in "0123456789":
 				continue
 			hist[item] = hist.get(item, 0) + 1
 	
 	hist_items = hist.items()
-	hist_items.sort(reverse=True)
+	hist_items.sort(key=lambda word: word[1], reverse=True)
+
 	print hist_items
 
 if __name__ == "__main__":
